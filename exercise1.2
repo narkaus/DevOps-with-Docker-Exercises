@@ -1,0 +1,35 @@
+C:\Users>docker ps -as
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                       PORTS     NAMES            SIZE
+592a0bf86589   nginx     "/docker-entrypoint.…"   5 minutes ago   Exited (0) 4 minutes ago               adoring_noyce    1.09kB (virtual 142MB)
+1eec39b4daf1   nginx     "/docker-entrypoint.…"   5 minutes ago   Exited (0) 4 minutes ago               hopeful_mayer    1.09kB (virtual 142MB)
+1625dfb29ca8   nginx     "/docker-entrypoint.…"   5 minutes ago   Up 5 minutes                 80/tcp    happy_bohr       1.09kB (virtual 142MB)
+84f0deaff3a4   nginx     "/docker-entrypoint.…"   6 minutes ago   Exited (127) 6 minutes ago             laughing_wiles   0B (virtual 142MB)
+
+C:\Users>docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+nginx         latest    fa5269854a5e   3 days ago     142MB
+hello-world   latest    feb5d9fea6a5   7 months ago   13.3kB
+
+C:\Users>docker container stop  16
+16
+
+C:\Users>docker system prune
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - all dangling build cache
+
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+592a0bf865897d4d4dc668f7cc2aac3669693864b303951e401f3a869a0c5d60
+1eec39b4daf1daa21c074980f8f63eb4406e94d109887dafebcaf4e5a338dce1
+1625dfb29ca87bfa38b375ebe2638cab2930bf9a4f681778e02ff2e4496181f8
+84f0deaff3a4237efb71be3bb52d9d4a06747bb55044907b97a41d584876e39d
+
+Total reclaimed space: 3.279kB
+
+C:\Users>docker ps -as
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES     SIZE
+
+C:\Users>
