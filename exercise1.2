@@ -32,4 +32,32 @@ Total reclaimed space: 3.279kB
 C:\Users>docker ps -as
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES     SIZE
 
+C:\Users>docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+nginx         latest    fa5269854a5e   4 days ago     142MB
+hello-world   latest    feb5d9fea6a5   7 months ago   13.3kB
+
+C:\Users>docker ps -as
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES     SIZE
+
+C:\Users>docker image rm nginx
+Untagged: nginx:latest
+Untagged: nginx@sha256:859ab6768a6f26a79bc42b231664111317d095a4f04e4b6fe79ce37b3d199097
+Deleted: sha256:fa5269854a5e615e51a72b17ad3fd1e01268f278a6684c8ed3c5f0cdce3f230b
+Deleted: sha256:5a730c5c122e844d0933a20b7b2fda1fc3bd33987869dbd2b59396d80b0bcfca
+Deleted: sha256:1c253cdf8e00753daf0cc7ce52d6e6371a1679db912912e6e854dd09ba8b4e97
+Deleted: sha256:532887908ca58c17ffd4946a51bfa01dc897f4ebf25f69fc149736f4fd6e8366
+Deleted: sha256:1c4fd4da0a6c4dec7037b57b8b24ca6a346209983cbe63264afe4e724a8a9976
+Deleted: sha256:186315e6b3b440e7935f059ccdaea035e03ccdb3133bc87055a299469d51717c
+Deleted: sha256:9c1b6dd6c1e6be9fdd2b1987783824670d3b0dd7ae8ad6f57dc3cea5739ac71e
+
+C:\Users>docker image rm hello-world
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:10d7d58d5ebd2a652f4d93fdd86da8f265f5318c6a73cc5b6a9798ff6d2b2e67
+Deleted: sha256:feb5d9fea6a5e9606aa995e879d862b825965ba48de054caab5ef356dc6b3412
+Deleted: sha256:e07ee1baac5fae6a26f30cabfe54a36d3402f96afda318fe0a96cec4ca393359
+
+C:\Users>docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
 C:\Users>
