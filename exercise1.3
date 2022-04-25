@@ -1,1 +1,36 @@
+C:\Users>docker run -d -it --name exrc_1_3 --rm devopsdockeruh/simple-web-service:ubuntu
+34eabee67f410fdcbb538c1c6bb547f44f45769a6a4d70e53caea806c22a3bee
+
+C:\Users>docker container ls
+CONTAINER ID   IMAGE                                      COMMAND                 CREATED         STATUS         PORTS     NAMES
+34eabee67f41   devopsdockeruh/simple-web-service:ubuntu   "/usr/src/app/server"   9 seconds ago   Up 7 seconds             exrc_1_3
+
+C:\Users>docker attach exrc_1_3
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+read escape sequence
+
+C:\Users>docker ps -as
+CONTAINER ID   IMAGE                                      COMMAND                 CREATED          STATUS                    PORTS     NAMES              SIZE
+34eabee67f41   devopsdockeruh/simple-web-service:ubuntu   "/usr/src/app/server"   36 seconds ago   Up 35 seconds                       exrc_1_3           795B (virtual 83MB)
+0f507878755e   ubuntu                                     "bash"                  26 hours ago     Exited (0) 26 hours ago             goofy_pasteur      13B (virtual 77.8MB)
+a6ce72db2567   ubuntu                                     "bash"                  26 hours ago     Exited (0) 26 hours ago             trusting_johnson   0B (virtual 77.8MB)
+
+C:\Users>docker exec -it exrc_1_3 bash
+root@34eabee67f41:/usr/src/app# ls -ltr
+total 9856
+-rwxr-xr-x 1 root root 10085718 Mar 14  2021 server
+-rw-r--r-- 1 root root     1500 Apr 25 16:49 text.log
+root@34eabee67f41:/usr/src/app# tail text.log
 Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2022-04-25 16:49:21 +0000 UTC
+2022-04-25 16:49:23 +0000 UTC
+2022-04-25 16:49:25 +0000 UTC
+2022-04-25 16:49:27 +0000 UTC
+2022-04-25 16:49:29 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2022-04-25 16:49:31 +0000 UTC
+2022-04-25 16:49:33 +0000 UTC
+2022-04-25 16:49:35 +0000 UTC
+root@34eabee67f41:/usr/src/app#
