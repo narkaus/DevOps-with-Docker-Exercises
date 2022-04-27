@@ -1,0 +1,20 @@
+Didn't get this working properly althoug I think docker command for mounting a single file should be ok.
+
+pirkko@DESKTOP-OK5T9TT:~$ ls -ltr
+total 36
+-rwxr-xr-x 1 pirkko pirkko   33 Apr 27 09:01 hello.sh
+-rw-r--r-- 1 pirkko pirkko    0 Apr 27 09:11 additional.txt
+-rw-r--r-- 1 pirkko pirkko  384 Apr 27 09:18 Dockerfile.1_6
+-rwxr-xr-x 1 pirkko pirkko  118 Apr 27 10:55 readSite.sh
+-rwxr-xr-x 1 pirkko pirkko   72 Apr 27 14:17 readArg.sh
+-rw-r--r-- 1 pirkko pirkko  123 Apr 27 14:23 Dockerfile.1_8
+-rw-r--r-- 1 pirkko pirkko   57 Apr 27 14:23 Dockerfile.1_7
+-rw-r--r-- 1 pirkko pirkko  135 Apr 27 14:31 Dockerfile.1_8_extra
+-rw-r--r-- 1 pirkko pirkko  134 Apr 27 14:32 Dockerfile
+drwxr-xr-x 2 root   root   4096 Apr 27 15:06 mydir
+-rw-rw-rw- 1 pirkko pirkko    0 Apr 27 15:32 text.log
+pirkko@DESKTOP-OK5T9TT:~$ id
+uid=1000(pirkko) gid=1000(pirkko) groups=1000(pirkko),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev),1001(docker)
+pirkko@DESKTOP-OK5T9TT:~$ docker run -v $(pwd)/text.log:/usr/src/app/text.log devopsdockeruh/simple-web-service
+docker: Error response from daemon: not a directory.
+See 'docker run --help'.
