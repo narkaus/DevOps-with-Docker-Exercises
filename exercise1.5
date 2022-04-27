@@ -1,0 +1,53 @@
+C:\Users>docker pull devopsdockeruh/simple-web-service:ubuntu
+ubuntu: Pulling from devopsdockeruh/simple-web-service
+Digest: sha256:d44e1dce398732e18c7c2bad9416a072f719af33498302b02929d4c112e88d2a
+Status: Image is up to date for devopsdockeruh/simple-web-service:ubuntu
+docker.io/devopsdockeruh/simple-web-service:ubuntu
+
+C:\Users>docker pull devopsdockeruh/simple-web-service:alpine
+alpine: Pulling from devopsdockeruh/simple-web-service
+ba3557a56b15: Pull complete
+1dace236434b: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:dd4d367476f86b7d7579d3379fe446ae5dfce25480903fb0966fc2e5257e0543
+Status: Downloaded newer image for devopsdockeruh/simple-web-service:alpine
+docker.io/devopsdockeruh/simple-web-service:alpine
+
+C:\Users>docker images
+REPOSITORY                          TAG       IMAGE ID       CREATED         SIZE
+ubuntu                              latest    3f4714ee068a   5 days ago      77.8MB
+fav_distro                          bionic    fdf0753c97a9   5 days ago      63.2MB
+ubuntu                              18.04     fdf0753c97a9   5 days ago      63.2MB
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   13 months ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   13 months ago   15.7MB
+
+
+C:\Users>docker run -d -it --rm devopsdockeruh/simple-web-service:alpine
+c52245ff54397993d9b6c28de45ef9a5c696d8bbaf37061763dbc3654a3cc81f
+
+C:\Users>docker ps -as
+CONTAINER ID   IMAGE                                      COMMAND                  CREATED              STATUS                      PORTS     NAMES                   SIZE
+c52245ff5439   devopsdockeruh/simple-web-service:alpine   "/usr/src/app/server"    25 seconds ago       Up 20 seconds                         compassionate_mclaren   500B (virtual 15.7MB)        1.21kB (virtual 15.7MB)
+3c3e1779df00   ubuntu                                     "sh -c 'echo 'Input …"   35 hours ago         Exited (0) 35 hours ago               inputWebsite            39.4MB (virtual 117MB)
+0f507878755e   ubuntu                                     "bash"                   2 days ago           Exited (0) 2 days ago                 goofy_pasteur           13B (virtual 77.8MB)
+a6ce72db2567   ubuntu                                     "bash"                   2 days ago           Exited (0) 2 days ago                 trusting_johnson        0B (virtual 77.8MB)
+
+C:\Users>docker exec -it c522 sh
+/usr/src/app # ls -ltr
+total 9856
+-rwxr-xr-x    1 root     root      10085718 Mar 14  2021 server
+-rw-r--r--    1 root     root          1560 Apr 27 04:57 text.log
+/usr/src/app # tail text.log
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2022-04-27 04:57:50 +0000 UTC
+2022-04-27 04:57:52 +0000 UTC
+2022-04-27 04:57:54 +0000 UTC
+2022-04-27 04:57:56 +0000 UTC
+2022-04-27 04:57:58 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2022-04-27 04:58:00 +0000 UTC
+2022-04-27 04:58:02 +0000 UTC
+2022-04-27 04:58:04 +0000 UTC
+/usr/src/app # exit
+
+C:\Users>
