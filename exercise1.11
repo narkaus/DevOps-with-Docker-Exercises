@@ -1,0 +1,13 @@
+# Simple button
+#Build the project with `./mvnw package`
+#Run with `java -jar ./target/docker-example-1.1.3.jar`
+#The project should open in `8080` and you get a message by pressing the button.
+# Use openjdk image instead of installing java manually
+FROM openjdk:19-jdk
+EXPOSE 8080
+WORKDIR /usr/src/app
+# Copy all of the source code
+COPY . .
+RUN ./mvnw package
+# command to run the application
+CMD java -jar ./target/docker-example-1.1.3.jar
