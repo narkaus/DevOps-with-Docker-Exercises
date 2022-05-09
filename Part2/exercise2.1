@@ -1,0 +1,10 @@
+#docker-compose.yml
+version: '3.8'
+services:
+    simple-web-service:
+	  image: devopsdockeruh/simple-web-service
+#      image: <username>/<repositoryname>
+      build: .
+      volumes:
+        - .:/src/app/dir
+      container_name: simple-web-service
