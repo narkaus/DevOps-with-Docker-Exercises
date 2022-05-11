@@ -1,0 +1,19 @@
+- created directory dcomp_simple_ws
+- edited docker-compose.yml
+
+version: '3.8'
+
+services:
+    simple-web-service:
+       image: devopsdockeruh/simple-web-service
+       ports:
+         - 8080:8080
+
+- run with docker-compose
+
+docker-compose up -d
+
+- tested in browser
+
+localhost:8080
+{"message":"You connected to the following path: /","path":"/"}
