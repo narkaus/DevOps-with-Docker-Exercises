@@ -1,0 +1,28 @@
+- created directory dcomp_fe_be
+- copied files from material-applications to new directory
+- edited docker-compose.yml
+
+#docker-compose.yml
+version: '3.8'
+
+services:
+    example-frontend:
+	  image: example-frontend
+      build: ./example-frontend
+      volumes:
+        - .:/src/app/dir
+      ports:
+	    - 5000:5000
+
+    example-backend:
+	  image: example-backend
+	  build: ./example-backend
+	  volumes:
+	    - .:/src/app/dir
+	  ports: 
+        - 8080:8080
+		
+- run
+docker-compose up -d
+
+- checked in browser that localhost:8080/ping and locahost:5000  give answers. ok.
