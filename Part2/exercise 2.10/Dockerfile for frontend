@@ -1,4 +1,4 @@
-#Dokcerfile for frontend when using nginx as reverse proxy
+#Dockerfile for frontend when using nginx as reverse proxy
 #REACT_APP_BACKEND_URL not needed
 FROM node:16.15.0
 EXPOSE 5000
