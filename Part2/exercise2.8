@@ -1,0 +1,50 @@
+#docker-compose.yml
+version: '3.8'
+
+services:
+    exafront:
+      image: exafront
+      build: ./example-frontend
+      container_name: exafront
+      volumes:
+        - ./example-frontend:/usr/src/app
+      ports:
+        - "5000:5000"
+
+    exaback:
+      image: exaback
+      build: ./example-backend
+      container_name: exaback
+      volumes:
+        - ./example-backend:/usr/src/app
+      ports:
+        - "8080:8080"
+      environment:
+        - REDIS_HOST=redis
+        - POSTGRES_HOST=localhost
+        - POSTGRES_PASSWORD=example
+        - REQUEST_ORIGIN=http://localhost
+      depends_on:
+        - redis
+        - db
+
+    redis:
+      image: redis
+      container_name: redis-dc
+      restart: unless-stopped
+      command: redis-server
+
+    db:
+      image: postgres:13.2-alpine
+      restart: unless-stopped
+      environment:
+        POSTGRES_PASSWORD: example
+      container_name: db_back
+
+    nginx:
+      image: nginx
+      container_name: nginx
+      volumes:
+        - ./nginx.conf:/etc/nginx/nginx.conf
+      ports:
+        - "80:80"
