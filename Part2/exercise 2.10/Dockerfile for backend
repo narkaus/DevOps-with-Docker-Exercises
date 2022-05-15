@@ -1,0 +1,11 @@
+#Dockerfile for backend when using nginx as reverse proxy
+#REQUEST_ORIGIN not needed
+FROM golang:1.16
+EXPOSE 8080
+ENV PORT=8080
+#ENV REQUEST_ORIGIN=http://localhost:5000
+WORKDIR /usr/src/app
+COPY . .
+RUN go build
+ENV PATH=$PATH:/usr/src/app
+CMD ["go","run","server"]
