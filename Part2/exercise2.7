@@ -1,0 +1,37 @@
+#docker-compose.yml
+version: '3.8'
+
+services:
+    kurkkufront:
+      image: kurkkufront
+	  build: ./ml-kurkkumopo-frontend
+      container_name: kurkkufront
+      volumes:
+        - ./ml-kurkkumopo-frontend:/src
+      ports:
+        - 3000:3000
+
+    kurkkuback:
+      image: kurkkuback
+	  build: ./ml-kurkkumopo-backend
+      container_name: kurkkuback
+      volumes:
+        - ./ml-kurkkumopo-backend:/src
+		- model:/src/model
+      ports:
+        - 5000:5000
+		
+    kurkkutraining:
+      image: kurkkutraining
+	  build: ./ml-kurkkumopo-training
+      container_name: kurkkutraining
+      volumes:
+        - ./ml-kurkkumopo-training:/src
+        - images:/src/imgs
+		- model:/src/model
+		- data:/src/data
+	
+volumes:
+    model:
+	imgs:
+	data:
